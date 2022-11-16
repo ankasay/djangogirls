@@ -7,25 +7,50 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">        
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
       <div class="col-lg-8 mx-auto p-4 py-md-5">
-        <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
-          <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-            
-            <span class="fs-4">Мой блог</span>
-          </a>
-        </header>
+        <nav class="navbar navbar-expand-lg navbar-lg navbar-light bg-light">
+          <div class="container-fluid">
         
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
+          <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+
+
+            <a class="navbar-brand" href="/">Мой блог</a>
+          </a>
+
+            <a href="{% url 'post_new' %}"><i class="bi-plus"></i>Добавить пост</a>
+            {% if user.get_username %}
+              <spanclass>{{user.get_username}}</spanclass>
+              <a href="{%url 'logout'%}" class="ms-2">Выход</a>
+            {%else%}
+              <a href="{%url 'login'%}" class="ms-2">Вход</a>
+            {%endif%}
+          </nav>
+
+        
+        <main>
+
+
                     {% block content %}
                     {% endblock %}
-                </div>
-            </div>
-        </div>
-      </div>
+                   </main>
+                   <footer>
+                    НИЯУ МИФИ &middot; &copy; 2022
+                    {% block footer %}{% endblock %}
+                    </footer>
+        
+      </div></div>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
