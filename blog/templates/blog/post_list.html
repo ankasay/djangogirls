@@ -2,28 +2,7 @@
 
 {% block content %}
     {% for post in posts %}
-        <div class="post">
-            
-            </div>
-            <div class="card my-2">
-              <div class="card-body">
-                <a class="card-title" href="/post{{post.id}}">{{ post.title }}</a>
-
-              
-                <p class="card-text">
-                    {{ post.text|linebreaksbr }}</p>
-                 
-                <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}">
-                  <i class="bi-pencil-square">Редактировать</i>
-                </a>
-              </div>
-              
-              <div class="card-footer">
-                Опубликовано
-                {{ post.published_date }}
-            </div>
-         
-        </div>
+    {% include 'blog/post.html' with post=post %} 
     {% endfor %}
 {% endblock %}
 {% block footer %}
