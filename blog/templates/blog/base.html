@@ -11,21 +11,28 @@
       <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     </head>
     <body>
-      <div class="col-lg-8 mx-auto p-4 py-md-5">
-        <nav class="navbar navbar-expand-lg navbar-lg navbar-light bg-light">
-          <div class="container-fluid">
+
+      <nav class="navbar navbar-expand-lg navbar-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+          
+      
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+          <h3 class="navbar-brand" href="/">Мой блог</h3>
+        </a>
+        {% if user.is_authentificated %}
+          <a href="{% url 'post_new' %}"><i class="bi-plus"></i>Добавить пост</a>{% endif %}
         
-          <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-            <h3 class="navbar-brand" href="/">Мой блог</h3>
-          </a>
-            <a href="{% url 'post_new' %}"><i class="bi-plus"></i>Добавить пост</a>
-            {% if user.get_username %}
-              <spanclass>{{user.get_username}}</spanclass>
-              <a href="{%url 'logout'%}" class="ms-2">Выход</a>
-            {%else%}
-              <a href="{%url 'login'%}" class="ms-2">Вход</a>
-            {%endif%}
-          </nav>
+          {% if user.get_username %}
+            <spanclass>{{user.get_username}}</spanclass>
+            <a href="{%url 'logout'%}" class="ms-2">Выход</a>
+          {%else%}
+            <a href="{%url 'login'%}" class="ms-2">Вход</a>
+          {%endif%}
+        </nav>
+
+      <div class="col-lg-8 mx-auto p-4 py-md-5">
+
 
         
         <main>
