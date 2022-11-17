@@ -20,8 +20,10 @@
         <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
           <h3 class="navbar-brand" href="/">Мой блог</h3>
         </a>
-        {% if user.is_authentificated %}
-          <a href="{% url 'post_new' %}"><i class="bi-plus"></i>Добавить пост</a>{% endif %}
+        {% if user.is_authenticated %}
+          <div style="margin-left:auto; margin-right:0">
+            
+          <a href="{% url 'post_new' %}" style="text-decoration: none"><i class="bi-plus"></i>Добавить пост</a>{% endif %}
         
           {% if user.get_username %}
             <spanclass>{{user.get_username}}</spanclass>
@@ -49,13 +51,4 @@
       </div></div>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
 

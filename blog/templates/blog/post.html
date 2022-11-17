@@ -8,7 +8,7 @@
   
     <p class="card-text">
         {{ post.text|linebreaksbr }}</p>
-    {% if user.is_authentificated %}
+    {% if user.is_authenticated %}
     <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}">
       <i class="bi-pencil-square">Редактировать</i>
     </a>
